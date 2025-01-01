@@ -87,6 +87,11 @@ h6 {
   font-family: var(--heading-font);
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
