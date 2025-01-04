@@ -53,22 +53,11 @@
           <li><a href="about.html">About</a></li>
           <li><a href="resume.html">Resume</a></li>
           <li><a href="certificates.html">Certificates</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="projects.html">Projects</a></li> <!-- Added Projects section -->
+          <li class="dropdown"><a href="#"><span>Hobbies</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+              <li><a href="photography.html">Photography</a></li>
+              <li><a href="chess.html">Chess</a></li>
             </ul>
           </li>
           <li><a href="contact.html" class="active">Contact</a></li>
@@ -247,6 +236,16 @@
         form.querySelector('.error-message').textContent = 'There was an error sending your message. Please try again later.';
         form.querySelector('.error-message').style.display = 'block';
       }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdowns = document.querySelectorAll('.dropdown > a');
+      dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function(event) {
+          event.preventDefault();
+          this.nextElementSibling.classList.toggle('show');
+        });
+      });
     });
   </script>
 
