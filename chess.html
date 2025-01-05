@@ -135,25 +135,17 @@
             <a href="https://www.chess.com/member/vivekjd7" class="btn btn-custom me-2" target="_blank">My Chess.com Profile</a>
             <a href="https://link.chess.com/play/DjIVat" class="btn btn-custom" target="_blank">Play with Me</a>
           </div>
-          <div class="col-lg-12 mb-4">
-            <h3>Interactive Chess Puzzle</h3>
-            <p>Solve this puzzle: Mate in 1</p>
-            <div id="board" style="width: 400px"></div>
-            <div class="info">
-              <button onclick="resetPuzzle()" class="btn btn-custom">Reset Puzzle</button>
-              <p id="status"></p>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer id="footer" class="footer light-background py-4">
+  <footer id="footer" class="footer light-background">
 
     <div class="container">
-      <div class="copyright text-center ">
+      <div class="copyright text-center">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">Vivek J Dhamanemath</strong> <span>All Rights Reserved<br></span></p>
       </div>
       <div class="social-links d-flex justify-content-center">
@@ -189,44 +181,6 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script> 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard.js/1.0.0/chessboard-1.0.0.min.js"></script>
-  <script>
-    // Initialize the chessboard and game
-    const game = new Chess();
-    const boardConfig = {
-      draggable: true,
-      position: '4k3/8/8/8/8/8/4Q3/4K3 w - - 0 1', // Starting position: Mate in 1
-      onDrop: handleMove
-    };
-    const board = Chessboard('board', boardConfig);
-
-    // Puzzle logic
-    function handleMove(source, target) {
-      const move = game.move({ from: source, to: target, promotion: 'q' });
-
-      // Illegal move
-      if (move === null) return 'snapback';
-
-      // Check if the game is over
-      if (game.in_checkmate()) {
-        document.getElementById('status').textContent = 'Congratulations! You solved the puzzle!';
-        return;
-      }
-
-      // Update the board position
-      board.position(game.fen());
-    }
-
-    // Reset puzzle
-    function resetPuzzle() {
-      game.reset();
-      game.load('4k3/8/8/8/8/8/4Q3/4K3 w - - 0 1'); // Reset to initial position
-      board.position(game.fen());
-      document.getElementById('status').textContent = '';
-    }
-  </script>
- 
 </body>
 
 </html>
