@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Photography - Vivek Dhamanemath</title>
-  <meta name="description" content="Explore the photography posts of Vivek Dhamanemath on Instagram.">
-  <meta name="keywords" content="Vivek Dhamanemath, photography, Instagram, portfolio">
+  <title>Chess - Vivek Dhamanemath</title>
+  <meta name="description" content="Explore the chess journey of Vivek Dhamanemath.">
+  <meta name="keywords" content="Vivek Dhamanemath, chess, portfolio, hobbies">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,8 +39,15 @@
     p {
       text-align: justify;
     }
+    #board {
+      margin: 20px auto;
+    }
+    .info {
+      margin-top: 10px;
+    }
   </style>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard.js/1.0.0/chessboard-1.0.0.min.css">
 </head>
 
 <body class="portfolio-page">
@@ -128,6 +135,15 @@
             <a href="https://www.chess.com/member/vivekjd7" class="btn btn-custom me-2" target="_blank">My Chess.com Profile</a>
             <a href="https://link.chess.com/play/DjIVat" class="btn btn-custom" target="_blank">Play with Me</a>
           </div>
+          <div class="col-lg-12 mb-4">
+            <h3>Interactive Chess Puzzle</h3>
+            <p>Solve this puzzle: Mate in 1</p>
+            <div id="board" style="width: 400px"></div>
+            <div class="info">
+              <button onclick="resetPuzzle()" class="btn btn-custom">Reset Puzzle</button>
+              <p id="status"></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -148,7 +164,7 @@
       </div>
       <div class="credits">
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+      </div> 
     </div>
 
   </footer>
@@ -157,7 +173,7 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
-  <div id="preloader"></div>  
+  <div id="preloader"></div>   
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -171,18 +187,44 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script> 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard.js/1.0.0/chessboard-1.0.0.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const dropdowns = document.querySelectorAll('.dropdown > a');
-      dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', function(event) {
-          event.preventDefault();
-          this.nextElementSibling.classList.toggle('show');
-        });
-      });
-    });
+    // Initialize the chessboard and game
+    const game = new Chess();
+    const boardConfig = {
+      draggable: true,
+      position: '4k3/8/8/8/8/8/4Q3/4K3 w - - 0 1', // Starting position: Mate in 1
+      onDrop: handleMove
+    };
+    const board = Chessboard('board', boardConfig);
+
+    // Puzzle logic
+    function handleMove(source, target) {
+      const move = game.move({ from: source, to: target, promotion: 'q' });
+
+      // Illegal move
+      if (move === null) return 'snapback';
+
+      // Check if the game is over
+      if (game.in_checkmate()) {
+        document.getElementById('status').textContent = 'Congratulations! You solved the puzzle!';
+        return;
+      }
+
+      // Update the board position
+      board.position(game.fen());
+    }
+
+    // Reset puzzle
+    function resetPuzzle() {
+      game.reset();
+      game.load('4k3/8/8/8/8/8/4Q3/4K3 w - - 0 1'); // Reset to initial position
+      board.position(game.fen());
+      document.getElementById('status').textContent = '';
+    }
   </script>
  
 </body>

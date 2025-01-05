@@ -27,13 +27,19 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Kelly
-  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    .btn-custom {
+      background-color: rgb(52, 183, 167);
+      color: white;
+    }
+    .btn-custom:hover {
+      background-color: rgb(42, 153, 137);
+      color: white;
+    }
+    .project-item img {
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
 
 <body class="portfolio-page">
@@ -79,7 +85,7 @@
   <main class="main">
 
     <!-- Projects Section -->
-    <section id="projects" class="projects section">
+    <section id="projects" class="projects section py-5">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -97,8 +103,15 @@
             <div class="project-info">
               <h4>Facial Recognition Attendance System</h4>
               <p style="text-align: justify;">Our project revolutionizes attendance management with facial recognition technology. It uses advanced algorithms to accurately identify individuals by analyzing unique facial features captured via camera. The system ensures reliability by accommodating variations in lighting, expressions, and aging, eliminating the need for manual sign-ins or badge swipes.</p>
-              <a href="https://github.com/vivek-dhamanemath/project-1" title="GitHub Repo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-github"></i> Know More
+              <p><strong>Technologies Used:</strong> Python, OpenCV, TensorFlow, Flask</p>
+              <a href="https://github.com/vivek-dhamanemath/project-1" title="GitHub Repo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-github"></i> GitHub Repo
+              </a>
+              <a href="https://example.com/live-demo" title="Live Demo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-box-arrow-up-right"></i> Live Demo
+              </a>
+              <a href="https://github.com/vivek-dhamanemath/project-1/blob/main/README.md" title="Project Details" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-file-earmark-text"></i> Project Details
               </a>
             </div>
           </div><!-- End Project Item -->
@@ -109,14 +122,37 @@
             <div class="project-info">
               <h4>Bank Management System</h4>
               <p style="text-align: justify;">The "Bank Account Management System" is an Internet Banking application that lets customers manage their accounts online. It simulates standard banking processes, enabling features like deposits, withdrawals, account setup, and reporting. Shifting from traditional banking to a 24/7 virtual platform, it offers global access and convenience, removing barriers to transactions anytime, anywhere.</p>
-              <a href="https://github.com/vivek-dhamanemath/bank-management-system" title="GitHub Repo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-github"></i> Know More
+              <p><strong>Technologies Used:</strong> Java, Spring Boot, MySQL, Thymeleaf</p>
+              <a href="https://github.com/vivek-dhamanemath/bank-management-system" title="GitHub Repo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-github"></i> GitHub Repo
+              </a>
+              <a href="https://example.com/live-demo" title="Live Demo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-box-arrow-up-right"></i> Live Demo
+              </a>
+              <a href="https://github.com/vivek-dhamanemath/bank-management-system/tree/master?tab=readme-ov-file#bank-management-system" title="Project Details" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-file-earmark-text"></i> Project Details
               </a>
             </div>
           </div><!-- End Project Item -->
 
           <!-- Project 3 -->
-          
+          <div class="col-lg-4 col-md-6 project-item">
+            <img src="assets/img/projects/project-3.jpg" class="img-fluid" alt="Project 3">
+            <div class="project-info">
+              <h4>E-commerce Website</h4>
+              <p style="text-align: justify;">Developed a fully functional e-commerce website that allows users to browse products, add items to the cart, and complete purchases. The website includes user authentication, product search, and order management features.</p>
+              <p><strong>Technologies Used:</strong> React, Node.js, Express, MongoDB</p>
+              <a href="https://github.com/vivek-dhamanemath/e-commerce-website" title="GitHub Repo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-github"></i> GitHub Repo
+              </a>
+              <a href="https://example.com/live-demo" title="Live Demo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-box-arrow-up-right"></i> Live Demo
+              </a>
+              <a href="https://github.com/vivek-dhamanemath/e-commerce-website/blob/main/README.md" title="Project Details" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-file-earmark-text"></i> Project Details
+              </a>
+            </div>
+          </div><!-- End Project Item -->
 
           <!-- Add more projects as needed -->
 

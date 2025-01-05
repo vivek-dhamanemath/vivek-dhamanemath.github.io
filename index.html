@@ -27,13 +27,16 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Kelly
-  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    .btn-custom {
+      background-color: rgb(52, 183, 167);
+      color: white;
+    }
+    .btn-custom:hover {
+      background-color: rgb(42, 153, 137);
+      color: white;
+    }
+  </style>
 </head>
 
 <body class="index-page">
@@ -88,7 +91,7 @@
           <div class="col-lg-8">
             <h2>Vivek J Dhamanemath</h2>
             <p>Recent MCA Graduate</p>
-            <a href="about.html" class="btn-get-started">About Me</a>
+            <a href="about.html" class="btn-get-started btn-custom">About Me</a>
           </div>
         </div>
       </div>
@@ -121,25 +124,6 @@
 
   </footer>
 
-  <!-- Instagram Modal -->
-  <div class="modal fade" id="instagramModal" tabindex="-1" aria-labelledby="instagramModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="instagramModalLabel">Instagram Posts</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="instagram-feed">
-            <!-- Replace with your Instagram embed code -->
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/your-actual-post-id/" data-instgrm-version="14"></blockquote>
-            <script async src="//www.instagram.com/embed.js"></script>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="display: none;"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -169,7 +153,7 @@
           this.nextElementSibling.classList.toggle('show');
         });
       });
-    });
+    }); 
   </script>
 
 </body>
