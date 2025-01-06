@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Contact - Vivek Dhamanemath</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Get in touch with Vivek Dhamanemath for any inquiries or collaborations.">
+  <meta name="keywords" content="Vivek Dhamanemath, contact, inquiries, collaborations, email, phone">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -94,29 +94,29 @@
           <div class="col-lg-5">
 
             <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+              <article class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
                   <p>Bengaluru, India</p>
                 </div>
-              </div><!-- End Info Item -->
+              </article><!-- End Info Item -->
 
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+              <article class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
                   <h3>Call Us</h3>
                   <p>+91 9902866318</p>
                 </div>
-              </div><!-- End Info Item -->
+              </article><!-- End Info Item -->
 
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <article class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email Us</h3>
                   <p>vivekjdwork@gmail.com</p>
                 </div>
-              </div><!-- End Info Item -->
+              </article><!-- End Info Item -->
             </div>
           </div>
 
@@ -208,6 +208,24 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Thank You Modal -->
+  <div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="thankYouModalLabel">Thank You!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Your message has been sent successfully. I will get back to you soon.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     document.getElementById('contact-form').addEventListener('submit', async function(event) {
       event.preventDefault();
@@ -222,9 +240,12 @@
           }
         });
         if (response.ok) {
-          form.querySelector('.sent-message').style.display = 'block';
+          form.querySelector('.sent-message').style.display = 'none';
           form.querySelector('.error-message').style.display = 'none';
           form.reset();
+          // Show thank you modal
+          const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+          thankYouModal.show();
         } else {
           const errorData = await response.json();
           form.querySelector('.sent-message').style.display = 'none';
@@ -233,7 +254,7 @@
         }
       } catch (error) {
         form.querySelector('.sent-message').style.display = 'none';
-        form.querySelector('.error-message').textContent = 'There was an error sending your message. Please try again later.';
+        form.querySelector('.error-message').textContent = 'There was an error sending your message. Please check your internet connection and try again.';
         form.querySelector('.error-message').style.display = 'block';
       }
     });

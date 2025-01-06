@@ -31,6 +31,8 @@
     .btn-custom {
       background-color: rgb(52, 183, 167);
       color: white;
+      margin: 5px; /* Add margin for spacing between buttons */
+      padding: 10px 20px; /* Add padding for better appearance */
     }
     .btn-custom:hover {
       background-color: rgb(42, 153, 137);
@@ -49,7 +51,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <!-- <img src="assets/img/logo.png" alt="Logo"> -->
         <h1 class="sitename">Vivek JD</h1>
       </a>
 
@@ -68,15 +70,15 @@
           </li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Toggle navigation"></i>
       </nav>
 
       <div class="header-social-links">
-        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
-        <!-- <a href="#" class="facebook"><i class="bi bi-facebook"></i></a> -->
-        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        <!-- <a href="#" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a> -->
+        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
       </div>
 
     </div>
@@ -171,11 +173,11 @@
         <p>© <span>Copyright</span> <strong class="px-1 sitename">Vivek J Dhamanemath</strong> <span>All Rights Reserved<br></span></p>
       </div>
       <div class="social-links d-flex justify-content-center">
-        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
-        <!-- <a href="#" class="facebook"><i class="bi bi-facebook"></i></a> -->
-        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        <!-- <a href="#" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a> -->
+        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
@@ -189,10 +191,10 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
-  <div id="preloader"></div>
+  <div id="preloader" aria-label="Loading"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -219,7 +221,7 @@
         <div class="modal-body">
           <div class="instagram-feed">
             <!-- Replace with your Instagram embed code -->
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/your-actual-post-id/" data-instgrm-version="14"></blockquote>
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/your-actual-post-id/" data-instgrm-version="14" aria-label="Instagram post"></blockquote>
             <script async src="//www.instagram.com/embed.js"></script>
           </div>
         </div>
