@@ -32,6 +32,14 @@
       background-color: rgb(52, 183, 167);
       color: white;
       border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
     }
     .btn-custom:hover {
       background-color: rgb(42, 153, 137);
@@ -40,6 +48,16 @@
     .btn-custom:focus {
       outline: none;
       box-shadow: none;
+    }
+    .certificate-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .certificate-details {
+      flex-grow: 1;
+      margin-right: 20px;
     }
   </style>
 </head>
@@ -94,35 +112,33 @@
           <p>Here are some of the certificates I have earned from various courses and training programs.</p>
         </div>
 
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="certificate-item">
-              <h4>1. Java Full Stack Internship</h4>
-              <p>at Workflow SOFTWARES, Sankeshwar.</p>
-              <a href="assets/img/certificates/certificate1.jpg" class="btn btn-primary btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
+        <div class="certificate-item">
+          <div class="certificate-details">
+            <h4>1. Java Full Stack Internship</h4>
+            <p>at Workflow SOFTWARES, Sankeshwar.</p>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="certificate-item">
-              <h4>2. Java Full Stack Course</h4>
-              <p>at KodNest, Bengaluru</p>
-              <a href="assets/img/certificates/certificate2.jpg" class="btn btn-primary btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
+          <a href="assets/img/certificates/certificate1.jpg" class="btn btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
+        </div>
+        <div class="certificate-item">
+          <div class="certificate-details">
+            <h4>2. Java Full Stack Course</h4>
+            <p>at KodNest, Bengaluru</p>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="certificate-item">
-              <h4>3. Hands-on Deep Learning Training</h4>
-              <p>by Infosys Springboard</p>
-              <a href="assets/img/certificates/certificate3.jpg" class="btn btn-primary btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
+          <a href="assets/img/certificates/certificate2.jpg" class="btn btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
+        </div>
+        <div class="certificate-item">
+          <div class="certificate-details">
+            <h4>3. Hands-on Deep Learning Training</h4>
+            <p>by Infosys Springboard</p>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="certificate-item">
-              <h4>4. DevOps Fundamentals</h4>
-              <p>by Infosys Springboard</p>
-              <a href="assets/img/certificates/certificate4.jpg" class="btn btn-primary btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
+          <a href="assets/img/certificates/certificate3.jpg" class="btn btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
+        </div>
+        <div class="certificate-item">
+          <div class="certificate-details">
+            <h4>4. DevOps Fundamentals</h4>
+            <p>by Infosys Springboard</p>
           </div>
+          <a href="assets/img/certificates/certificate4.jpg" class="btn btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
         </div>
       </div>
     </section>
