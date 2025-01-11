@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Photography - Vivek Dhamanemath</title>
-  <meta name="description" content="Explore the photography posts of Vivek Dhamanemath on Instagram.">
-  <meta name="keywords" content="Vivek Dhamanemath, photography, Instagram, portfolio">
+  <title>Spring - Vivek Dhamanemath</title>
+  <meta name="description" content="Learn about JDBC with Vivek Dhamanemath.">
+  <meta name="keywords" content="Vivek Dhamanemath, JDBC, learnings, tech trends">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -32,14 +32,41 @@
       background-color: rgb(52, 183, 167);
       color: white;
       border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px; 
     }
+
     .btn-custom:hover {
       background-color: rgb(42, 153, 137);
       color: white;
     }
+
     .btn-custom:focus {
       outline: none;
       box-shadow: none;
+    }
+    p {
+      text-align: justify;
+    }
+    .info {
+      margin-top: 10px;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .copyright {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 </head>
@@ -62,10 +89,10 @@
           <li><a href="projects.html">Projects</a></li>
           <li class="dropdown"><a href="#"><span>Hobbies</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="photography.html" class="active">Photography</a></li>
-              <li><a href="chess.html">Chess</a></li>
+              <li><a href="photography.html">Photography 📷</a></li>
+              <li><a href="chess.html">Chess♟️</a></li>
             </ul>
-            <li><a href="learnings.html">Learnings</a></li>
+            <li><a href="Learnings.html" class="active">Learnings</a></li>
           </li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -83,52 +110,15 @@
   </header>
 
   <main class="main">
-
-    <!-- Photography Section -->
-    <section id="photography" class="photography section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Photography 📷</h2>
-        <p>Welcome to my photography world! As an amateur photographer, I strive to capture the beauty of everyday moments through my lens. Join me on this journey to explore unique perspectives and timeless memories.</p>
-      </div>
-
-      <div class="container">
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-lg-4 col-md-6">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CNkIFdJD2ko/" data-instgrm-version="14"></blockquote>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CIa5VPVjiWi/" data-instgrm-version="14"></blockquote>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/B4PvCK6HO_x/" data-instgrm-version="14"></blockquote>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/B2zDFsQH6L-/" data-instgrm-version="14"></blockquote>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/B1T7SVdHm7h/" data-instgrm-version="14"></blockquote>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BziVOHVnnTG/" data-instgrm-version="14"></blockquote>
-          </div>
-          
-          <!-- Add more posts as needed -->
-        </div>
-        <div class="text-center mt-4">
-          <a href="https://www.instagram.com/vivek_jd_155/" class="btn btn-primary btn-custom" target="_blank" rel="noopener noreferrer">View more on Instagram</a>
-        </div>
-        <script async src="//www.instagram.com/embed.js"></script>
-      </div>
-
-    </section>
-
+    <div class="container">
+      <h2>Spring</h2>
+      <p>Content about JDBC goes here...</p>
+    </div>
   </main>
 
   <footer id="footer" class="footer light-background">
-
     <div class="container">
-      <div class="copyright text-center ">
+      <div class="copyright text-center">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">Vivek J Dhamanemath</strong> <span>All Rights Reserved<br></span></p>
       </div>
       <div class="social-links d-flex justify-content-center">
@@ -141,14 +131,10 @@
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
-
   </footer>
-
+  
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -163,19 +149,6 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const dropdowns = document.querySelectorAll('.dropdown > a');
-      dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', function(event) {
-          event.preventDefault();
-          this.nextElementSibling.classList.toggle('show');
-        });
-      });
-    });
-  </script>
- 
 </body>
 
 </html>

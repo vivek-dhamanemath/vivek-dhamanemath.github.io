@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Hibernate - Vivek Dhamanemath</title>
+  <meta name="description" content="Learn about Hibernate with Vivek Dhamanemath.">
+  <meta name="keywords" content="Vivek Dhamanemath, Hibernate, learnings, tech trends">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .btn-custom {
+      background-color: rgb(52, 183, 167);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .btn-custom:hover {
+      background-color: rgb(42, 153, 137);
+      color: white;
+    }
+
+    .btn-custom:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    .info {
+      margin-top: 10px;
+    }
+
+    .footer {
+      display: none; /* Initially hide the footer */
+      width: 100%;
+    }
+
+    .footer.visible {
+      display: block; /* Show the footer when it becomes visible */
+    }
+
+    .copyright {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dropdown-content {
+      display: none;
+      padding: 15px;
+      border: 1px solid #ddd;
+      margin-top: 5px;
+      border-radius: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 500;
+      margin-bottom: 15px; /* Add padding between headings */
+    }
+
+    .dropdown-toggle:hover {
+      background-color: #e8e8e8;
+    }
+
+    .dropdown-toggle i {
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown-content.active {
+      display: block;
+    }
+
+    .dropdown-toggle.active i {
+      transform: rotate(180deg);
+    }
+
+    #scroll-top {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #34b7a7;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    #scroll-top:hover {
+      background-color: #2a9989;
+    }
+  </style>
+</head>
+
+<body class="portfolio-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Vivek JD</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="dropdown"><a href="#"><span>Hobbies</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="photography.html">Photography 📷</a></li>
+              <li><a href="chess.html">Chess♟️</a></li>
+            </ul>
+            <li><a href="Learnings.html" class="active">Learnings</a></li>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <h2>Hibernate</h2>
+      <div class="dropdown">
+        <h3 class="dropdown-toggle">Introduction to Hibernate <i class="bi bi-chevron-down"></i></h3>
+        <div class="dropdown-content">
+          <p>• Hibernate is an open-source Object-Relational Mapping (ORM) framework for RDBMS Java, which eases the work of developers in establishing the communication wrt RDBMS
+          <p>•It simplifies the development of Java applications that interact with relational databases by providing a high-level abstraction over the low- level database interactions typically handled by JDBC.
+          <p>• Hibernate maps Java classes to database tables and Java data types to SQL data types. This mapping is typically defined using annotations or XML configuration.  
+          <p>• Hibernate makes it easier for the developer to build relational mapping between tables, write queries, and achieve caching.
+
+        </div>
+      </div>
+      <div class="dropdown">
+        <h3 class="dropdown-toggle">ORM(Object Relational Mapping) <i class="bi bi-chevron-down"></i></h3>
+        <div class="dropdown-content">
+          <p>• ORM is a concept which represents the process of mapping Java objects to represented by the attribute names.
+          <p>• Here table name is represented by the class name and column names are represented by the attributes names.
+          <p>• There are various Java frameworks that are built using the concept of ORM
+            1.Hibernate   2.Ibatis    3.Toplink   4.EclipseLink
+          
+
+
+        </div>
+      </div>
+      <div class="dropdown">
+        <h3 class="dropdown-toggle">Hibernate Architecture <i class="bi bi-chevron-down"></i></h3>
+        <div class="dropdown-content">
+          <a href="assets/img/hibernate/Architecture.jpg" class="btn btn-custom" target="_blank" rel="noopener noreferrer">View Architecture diagram</a>
+          <p></p>
+        </div>
+      </div>
+      <div class="dropdown">
+        <h3 class="dropdown-toggle">Relational Mapping <i class="bi bi-chevron-down"></i></h3>
+        <div class="dropdown-content">
+          <p>Hibernate is a Java framework that simplifies the development of Java application to interact with the database. It is an open source, lightweight, ORM (Object Relational Mapping) tool. Hibernate implements the specifications of JPA (Java Persistence API) for data persistence.</p>
+        </div>
+      </div>
+      <div class="dropdown">
+        <h3 class="dropdown-toggle">FetchType <i class="bi bi-chevron-down"></i></h3>
+        <div class="dropdown-content">
+          <p>Hibernate is a Java framework that simplifies the development of Java application to interact with the database. It is an open source, lightweight, ORM (Object Relational Mapping) tool. Hibernate implements the specifications of JPA (Java Persistence API) for data persistence.</p>
+        </div>
+      </div>
+      <div class="dropdown">
+        <h3 class="dropdown-toggle">Hibernate Caching <i class="bi bi-chevron-down"></i></h3>
+        <div class="dropdown-content">
+          <p>Hibernate is a Java framework that simplifies the development of Java application to interact with the database. It is an open source, lightweight, ORM (Object Relational Mapping) tool. Hibernate implements the specifications of JPA (Java Persistence API) for data persistence.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Vivek J Dhamanemath</strong> <span>All Rights Reserved<br></span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.querySelectorAll('.dropdown-toggle').forEach(item => {
+      item.addEventListener('click', event => {
+        const content = item.nextElementSibling;
+        content.classList.toggle('active');
+        item.classList.toggle('active');
+      });
+    });
+
+    // Scroll to top functionality
+    const scrollTop = document.getElementById('scroll-top');
+    scrollTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        scrollTop.style.display = 'flex';
+      } else {
+        scrollTop.style.display = 'none';
+      }
+    });
+
+    // Show footer when reaching the bottom of the page
+    const footer = document.querySelector('.footer');
+    window.addEventListener('scroll', () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        footer.classList.add('visible');
+      } else {
+        footer.classList.remove('visible');
+      }
+    });
+  </script>
+</body>
+
+</html>
