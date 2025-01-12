@@ -124,6 +124,7 @@
     }
     .gallery-section {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
       margin-top: 50px;
     }
@@ -136,6 +137,7 @@
       align-items: center;
       cursor: pointer;
       transition: transform 0.3s ease;
+      margin: 10px;
     }
     .gallery-card:hover {
       transform: scale(1.05);
@@ -208,6 +210,26 @@
       margin: auto;
       width: 100%;
       max-width: 700px;
+    }
+    @media (max-width: 768px) {
+      .gallery-card {
+        width: 150px;
+        height: 150px;
+      }
+      .prev, .next {
+        font-size: 16px;
+        padding: 12px;
+      }
+    }
+    @media (max-width: 480px) {
+      .gallery-card {
+        width: 100px;
+        height: 100px;
+      }
+      .prev, .next {
+        font-size: 12px;
+        padding: 8px;
+      }
     }
   </style>
 </head>
