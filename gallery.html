@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Gallery - Vivek Dhamanemath</title>
+  <meta name="description" content="Vivek Dhamanemath's learnings on tech trends and experiences.">
+  <meta name="keywords" content="Vivek Dhamanemath, learnings, tech trends, experiences">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .btn-custom {
+      background-color: rgb(52, 183, 167);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px; 
+    }
+
+    .btn-custom:hover {
+      background-color: rgb(42, 153, 137);
+      color: white;
+    }
+
+    .btn-custom:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    p {
+      text-align: justify;
+    }
+    .info {
+      margin-top: 10px;
+    }
+    .btn-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+    .btn-learnings {
+      padding: 8px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    /* .btn-jdbc { background-color: rgb(52, 183, 167); color: white; }
+    .btn-servlet { background-color: rgb(52, 183, 167); color: white; }
+    .btn-hibernate { background-color: rgb(52, 183, 167); color: white; }
+    .btn-spring { background-color: rgb(52, 183, 167); color: white; }
+    .btn-learnings:hover { opacity: 0.8; }
+    .footer {
+      bottom: 0;
+      width: 100%;
+    } */
+    .copyright {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    body {
+      overflow-y: scroll;
+      font-family: 'Roboto', 'Open Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .main {
+      flex: 1;
+    }
+    .footer {
+      width: 100%;
+      margin-top: auto;
+    }
+    .dropdown ul {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown:hover ul {
+      display: block;
+    }
+    .dropdown ul li {
+      padding: 12px 16px;
+    }
+    .dropdown ul li a {
+      color: black;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown ul li a:hover {
+      background-color: #f1f1f1;
+    }
+    .gallery-section {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+    .gallery-card {
+      width: 200px;
+      height: 200px;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery-card:hover {
+      transform: scale(1.05);
+    }
+    .gallery-card h3 {
+      text-align: center;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+      position: relative;
+      margin: auto;
+      padding: 0;
+      width: 80%;
+      max-width: 700px;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      color: #fff;
+      font-size: 35px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+    .caption-container {
+      text-align: center;
+      padding: 2px 16px;
+      color: white;
+    }
+    .modal img, .modal video {
+      display: none;
+      margin: auto;
+      width: 100%;
+      max-width: 700px;
+    }
+  </style>
+</head>
+
+<body class="portfolio-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Vivek JD</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="dropdown"><a href="#"><span>Hobbies</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="photography.html">Photography 📷</a></li>
+              <li><a href="chess.html">Chess♟️</a></li>
+            </ul>
+            <li><a href="gallery.html" class="active">Gallery</a></li>   
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="gallery-section">
+        <div class="gallery-card" onclick="openModal('collegeDiariesModal')">
+          <h3>College Diaries</h3>
+        </div>
+        <div class="gallery-card" onclick="openModal('travelDiariesModal')">
+          <h3>Travel Diaries</h3>
+        </div>
+        <div class="gallery-card" onclick="openModal('farewellModal')">
+          <h3>Farewell</h3>
+        </div>
+        <div class="gallery-card" onclick="openModal('convocationsModal')">
+          <h3>Convocations</h3>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modals for each section -->
+  <div id="collegeDiariesModal" class="modal">
+    <span class="close" onclick="closeModal('collegeDiariesModal')">&times;</span>
+    <div class="modal-content">
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+      <a class="prev" onclick="plusSlides(-1, 'collegeDiariesModal')">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 'collegeDiariesModal')">&#10095;</a>
+      <img src="assets/img/gallery/college/1.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/2.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/3.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/4.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/5.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/6.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/7.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/8.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/9.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/10.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/college/11.jpg" alt="Caption 1">
+
+      <!-- Add more images as needed -->
+    </div>
+  </div>
+
+  <div id="travelDiariesModal" class="modal">
+    <span class="close" onclick="closeModal('travelDiariesModal')">&times;</span>
+    <div class="modal-content">
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+      <a class="prev" onclick="plusSlides(-1, 'travelDiariesModal')">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 'travelDiariesModal')">&#10095;</a>
+      <img src="assets/img/gallery/travel/1.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/travel/2.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/travel/3.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/travel/4.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/travel/5.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/travel/6.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/travel/7.jpg" alt="Caption 1">
+      
+      
+      <video controls title="Video 1">
+        <source src="assets/img/gallery/travel/lalbag.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <!-- Add more images and videos as needed -->     
+    </div>
+  </div>
+
+  <div id="farewellModal" class="modal">
+    <span class="close" onclick="closeModal('farewellModal')">&times;</span>
+    <div class="modal-content">
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+      <a class="prev" onclick="plusSlides(-1, 'farewellModal')">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 'farewellModal')">&#10095;</a>
+      <img src="assets/img/gallery/farewell/1.JPG" alt="Caption 1">
+      <img src="assets/img/gallery/farewell/2.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/farewell/3.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/farewell/4.jpg" alt="Caption 1">
+      
+      <!-- Add more images as needed -->
+    </div>
+  </div>
+
+  <div id="convocationsModal" class="modal">
+    <span class="close" onclick="closeModal('convocationsModal')">&times;</span>
+    <div class="modal-content">
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+      <a class="prev" onclick="plusSlides(-1, 'convocationsModal')">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 'convocationsModal')">&#10095;</a>
+      <img src="assets/img/gallery/convocation/1.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/convocation/2.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/convocation/3.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/convocation/4.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/convocation/5.jpg" alt="Caption 1">
+      <img src="assets/img/gallery/convocation/6.jpg" alt="Caption 1">
+      
+      
+     
+      <!-- Add more images as needed -->
+    </div>
+  </div>
+
+  <script>
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+      showSlides(0, modalId);
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+    }
+
+    function plusSlides(n, modalId) {
+      var modal = document.getElementById(modalId);
+      var slides = modal.querySelectorAll('img, video');
+      var currentSlide = Array.from(slides).findIndex(slide => slide.style.display === 'block');
+      showSlides(currentSlide + n, modalId);
+    }
+
+    function showSlides(n, modalId) {
+      var modal = document.getElementById(modalId);
+      var slides = modal.querySelectorAll('img, video');
+      var captionText = modal.getElementsByClassName('caption-container')[0].getElementsByTagName('p')[0];
+      if (n >= slides.length) { n = 0; }
+      if (n < 0) { n = slides.length - 1; }
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        if (slides[i].tagName === 'VIDEO') {
+          slides[i].pause();
+        }
+      }
+      slides[n].style.display = "block";
+      if (slides[n].tagName === 'VIDEO') {
+        slides[n].play();
+      }
+      captionText.innerHTML = slides[n].alt || slides[n].title || '';
+    }
+
+    document.querySelectorAll('.modal').forEach(modal => {
+      var slides = modal.querySelectorAll('img, video');
+      if (slides.length > 0) {
+        slides[0].style.display = 'block';
+        if (slides[0].tagName === 'VIDEO') {
+          slides[0].play();
+        }
+        modal.getElementsByClassName('caption-container')[0].getElementsByTagName('p')[0].innerHTML = slides[0].alt || slides[0].title || '';
+      }
+    });
+
+    // Close modal when clicking outside of the modal content
+    window.onclick = function(event) {
+      document.querySelectorAll('.modal').forEach(modal => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Vivek J Dhamanemath</strong> <span>All Rights Reserved<br></span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
