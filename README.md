@@ -7,6 +7,7 @@ Welcome to my personal website! This repository contains the source code for my 
 - [About](#about)
 - [Projects](#projects)
 - [Certificates](#certificates)
+- [Gallery](#gallery)
 - [Contact](#contact)
 - [License](#license)
 
@@ -34,9 +35,37 @@ Explore the certificates I have earned from various courses and training program
    - at Workflow SOFTWARES, Sankeshwar.
    - [View Certificate](assets/img/certificates/certificate1.jpg)
 
-2. **Infosys Springboard**
+2. **Java Full Stack Course**
+   - at KodNest, Bengaluru.
+   - [View Certificate](assets/img/certificates/certificate2.jpg)
+
+3. **Hands-on Deep Learning Training**
+   - by Infosys Springboard.
+   - [View Certificate](assets/img/certificates/certificate3.jpg)
+
+4. **DevOps Fundamentals**
    - by Infosys Springboard.
    - [View Certificate](assets/img/certificates/certificate4.jpg)
+
+## Gallery
+
+Explore the gallery of moments that define my journey:
+
+1. **Convocation**
+   - A proud moment marking the culmination of years of learning and growth.
+   - [View Gallery](convocation.html)
+
+2. **Farewell**
+   - Cherished memories from the farewell event.
+   - [View Gallery](farewell.html)
+
+3. **College Diaries**
+   - Capturing the essence of college life.
+   - [View Gallery](college_diaries.html)
+
+4. **Travel Diaries**
+   - Adventures and experiences from my travels.
+   - [View Gallery](travel_diaries.html)
 
 ## Contact
 
