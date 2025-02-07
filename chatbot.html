@@ -30,6 +30,39 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5156057174099237" crossorigin="anonymous"></script>
 
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header, footer {
+      width: 100%;
+      background: rgb(233, 232, 230);
+      color: black;
+      padding: 10px;
+      text-align: center;
+    }
+    header nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    header nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+    header nav ul li a {
+      color: black;
+      text-decoration: none;
+    }
     .btn-custom {
       background-color: rgb(52, 183, 167);
       color: white;
@@ -61,6 +94,77 @@
       flex-grow: 1;
       margin-right: 20px;
     }
+    .chat-container {
+      width: 350px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-box {
+      height: 400px;
+      overflow-y: auto;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .chat-box p {
+      padding: 8px;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+    .user {
+      background: rgb(233, 232, 230);
+      color: black;
+      text-align: right;
+    }
+    .bot {
+      background: #ddd;
+      color: black;
+    }
+    .input-box {
+      display: flex;
+      padding: 10px;
+      background: #fff;
+    }
+    .input-box input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+    .input-box button {
+      padding: 8px 15px;
+      margin-left: 10px;
+      background: rgb(42, 153, 137);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .header {
+      background: rgb(233, 232, 230)
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 1.2em;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .footer {
+      background: rgb(233, 232, 230)
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9em;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .input-box button:hover {
+      background: #0056b3;
+    }
   </style>
 </head>
 
@@ -78,7 +182,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Me</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="resume.html">Resume</a></li>
           <li><a href="certificates.html">Certificates</a></li>
           <li><a href="projects.html">Projects</a></li>
@@ -100,7 +204,7 @@
               
             </ul>
           </li>
-
+          <li><a href="chatbot.html">Ask AI</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -119,55 +223,17 @@
 
   <main class="main">
 
-    <!-- Certificates Section -->
-    <section id="certificates" class="certificates section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Certificates</h2>
-          <p>Here are some of the certificates I have earned from various courses and training programs.</p>
-        </div>
-
-        <div class="certificate-item">
-          <div class="certificate-details">
-            <h4>1. Java Full Stack Internship</h4>
-            <p>at Workflow SOFTWARES, Sankeshwar.</p>
-          </div>
-          <div class="text-center mt-4">
-            <a href="assets/img/certificates/certificate1.jpg" class="btn btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
-          </div>
-        </div>
-        <div class="certificate-item">
-          <div class="certificate-details">
-            <h4>2. Java Full Stack Course</h4>
-            <p>at KodNest, Bengaluru</p>
-          </div>
-          <div class="text-center mt-4">
-            <a href="assets/img/certificates/certificate2.jpg" class="btn btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
-          </div>
-        </div>
-        <div class="certificate-item">
-          <div class="certificate-details">
-            <h4>3. Hands-on Deep Learning Training</h4>
-            <p>by Infosys Springboard</p>
-          </div>
-          <div class="text-center mt-4">
-            <a href="assets/img/certificates/certificate3.jpg" class="btn btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
-          </div>
-        </div>
-        <div class="certificate-item">
-          <div class="certificate-details">
-            <h4>4. DevOps Fundamentals</h4>
-            <p>by Infosys Springboard</p>
-          </div>
-          <div class="text-center mt-4">
-            <a href="assets/img/certificates/certificate4.jpg" class="btn btn-custom" target="_blank" rel="noopener noreferrer">View Certificate</a>
-          </div>
-        </div>
+    <!-- ChatBot Section -->
+    <div class="chat-container">
+      <div class="header">Chatbot</div>
+      <div class="chat-box" id="chat-box"></div>
+      <div class="input-box">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
       </div>
-    </section>
-
-    
-
+      <div class="footer">Powered by GitHub Copilot</div>
+    </div>
+     
   </main>
 
   <footer id="footer" class="footer light-background">
@@ -204,7 +270,25 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    function sendMessage() {
+      let userInput = document.getElementById("user-input").value;
+      if (userInput.trim() === "") return;
 
+      let chatBox = document.getElementById("chat-box");
+      let userMessage = `<p class='user'>${userInput}</p>`;
+      chatBox.innerHTML += userMessage;
+
+      setTimeout(() => {
+        let botMessage = `<p class='bot'>Hello! How can I assist you?</p>`;
+        chatBox.innerHTML += botMessage;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 1000);
+
+      document.getElementById("user-input").value = "";
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
 </body>
 
 </html>
