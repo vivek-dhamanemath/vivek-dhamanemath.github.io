@@ -64,6 +64,7 @@
   const preloader = document.querySelector('#preloader');
   if (preloader) {
     window.addEventListener('load', () => {
+      console.log('Window loaded, removing preloader...'); // Debug log
       preloader.remove();
     });
   }
@@ -117,6 +118,75 @@
         });
       }
     });
+  });
+
+  /**
+   * Animation for skills progress bars
+   */
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to animate skill bars
+    function animateSkillBars() {
+      const skillSection = document.querySelector('.skills-animation');
+      if (!skillSection) return;
+      
+      // Get all progress bars
+      const progressBars = skillSection.querySelectorAll('.progress-bar');
+      
+      // Function to check if an element is in viewport
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.bottom >= 0
+        );
+      }
+      
+      // Function to animate progress bar
+      function setProgressWidth() {
+        if (isInViewport(skillSection)) {
+          progressBars.forEach(bar => {
+            const value = bar.getAttribute('aria-valuenow');
+            bar.style.width = value + '%';
+          });
+          // Remove scroll event once animation is triggered
+          window.removeEventListener('scroll', setProgressWidth);
+        }
+      }
+      
+      // Set initial trigger in case skills section is already in viewport
+      setProgressWidth();
+      
+      // Add scroll event listener
+      window.addEventListener('scroll', setProgressWidth);
+    }
+    
+    // Initialize the skill bar animation
+    animateSkillBars();
+  });
+
+  /**
+   * Animation for timeline items
+   */
+  document.addEventListener('DOMContentLoaded', function() {
+    const initTimelineAnimations = () => {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      
+      timelineItems.forEach(item => {
+        const waypoint = new Waypoint({
+          element: item,
+          handler: function() {
+            item.classList.add('animate');
+            this.destroy();
+          },
+          offset: '90%'
+        });
+      });
+    };
+    
+    // Initialize timeline animations if timeline items exist
+    if (document.querySelector('.timeline-item')) {
+      initTimelineAnimations();
+    }
   });
 
   /**
@@ -181,6 +251,38 @@
       }, false);
     });
 
+  });
+
+  /**
+   * Contact form submission
+   */
+  document.getElementById('contact-form').addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const responseMessage = document.getElementById('response-message');
+  
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+      });
+  
+      if (response.ok) {
+        responseMessage.textContent = 'Your message has been sent successfully!';
+        responseMessage.className = 'success';
+        responseMessage.style.display = 'block';
+        form.reset();
+      } else {
+        responseMessage.textContent = 'There was an error sending your message. Please try again.';
+        responseMessage.className = 'error';
+        responseMessage.style.display = 'block';
+      }
+    } catch (error) {
+      responseMessage.textContent = 'There was an error sending your message. Please check your internet connection and try again.';
+      responseMessage.className = 'error';
+      responseMessage.style.display = 'block';
+    }
   });
 
 })();

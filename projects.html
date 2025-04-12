@@ -26,208 +26,133 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/navbar.css" rel="stylesheet">
+  <link href="assets/css/project.css" rel="stylesheet">
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5156057174099237" crossorigin="anonymous"></script>
-
-  <style>
-    .btn-custom {
-      background-color: rgb(52, 183, 167);
-      color: white;
-      border: none;
-      margin: 5px; /* Add margin for spacing between buttons */
-      padding: 10px 20px; /* Add padding for better appearance */
-    }
-    .btn-custom:hover {
-      background-color: rgb(42, 153, 137);
-      color: white;
-    }
-    .btn-custom:focus {
-      outline: none;
-      box-shadow: none;
-    }
-    .project-item img {
-      margin-bottom: 15px;
-    }
-  </style>
 </head>
 
-<body class="portfolio-page">
+<body class="projects-page">
+    <!-- Removed preloader for instant load -->
 
-  <header id="header" class="header d-flex align-items-center light-background sticky-top">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt="Logo"> -->
-        <h1 class="sitename">Vivek JD</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Me</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="certificates.html">Certificates</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li class="dropdown"><a href="#"><span>Hobbies</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="photography.html">Photography 📷</a></li>
-              <li><a href="chess.html">Chess♟️</a></li>
-            </ul>
-           
-          </li> 
-          
-          <li class="dropdown"><a href="#" class="active"><span>Gallery</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="convocation.html" >Convocation</a></li>
-              <li><a href="farewell.html" >Farewell</a></li>
-              <li><a href="college_diaries.html" >College Diaries</a></li>
-              <li><a href="travel_diaries.html" >Travel Diaries</a></li>
-  
-              
-            </ul>
-          </li>
-
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <div class="header-social-links">
-        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-        <!-- <a href="#" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a> -->
-        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
-      </div>
-
-    </div>
-  </header>
-
+  <!-- Main content immediately visible -->
   <main class="main">
 
     <!-- Projects Section -->
     <section id="projects" class="projects section py-5">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Projects</h2>
-        <p>Here are some of the technical projects I have worked on.</p>
-      </div><!-- End Section Title -->
+        <p>Explore some of my recent technical projects that showcase my skills and passion for development.</p>
+      </div>
 
       <div class="container">
-
         <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
 
           <!-- Project 1 -->
-          <div class="col-lg-4 col-md-6 project-item">
-            <img src="assets/img/projects/project-1.jpg" class="img-fluid" alt="Project 1">
-            <div class="project-info">
-              <h4>Facial Recognition Attendance System</h4>
-              <p style="text-align: justify;">Our project revolutionizes attendance management with facial recognition technology. It uses advanced algorithms to accurately identify individuals by analyzing unique facial features captured via camera. The system ensures reliability by accommodating variations in lighting, expressions, and aging, eliminating the need for manual sign-ins or badge swipes.</p>
-              <p><strong>Technologies Used:</strong> Python, OpenCV, TensorFlow, Flask</p>
-              <a href="https://github.com/vivek-dhamanemath/Facial-Recognition-Attendence-System" title="GitHub Repo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-github"></i> GitHub Repo
-              </a>
-              <a href="https://example.com/live-demo" title="Live Demo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-box-arrow-up-right"></i> Live Demo
-              </a>
-              <a href="https://github.com/vivek-dhamanemath/Facial-Recognition-Attendence-System?tab=readme-ov-file#face-recognition-based-attendance-system" title="Project Details" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-file-earmark-text"></i> Project Details
-              </a>
+          <div class="col-lg-4 col-md-6">
+            <div class="project-item">
+              <img src="assets/img/projects/project-1.jpg" class="img-fluid" alt="Facial Recognition System">
+              <div class="project-info">
+                <h4>Facial Recognition Attendance System</h4>
+                <p>Advanced attendance management system using facial recognition technology for accurate and automated tracking.</p>
+                
+                <ul class="tech-stack">
+                  <li>Python</li>
+                  <li>OpenCV</li>
+                  <li>TensorFlow</li>
+                  <li>Flask</li>
+                </ul>
+                
+                <div class="project-links">
+                  <a href="https://github.com/vivek-dhamanemath/Facial-Recognition-Attendence-System" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-github"></i> GitHub
+                  </a>
+                  <a href="https://github.com/vivek-dhamanemath/Facial-Recognition-Attendence-System?tab=readme-ov-file#face-recognition-based-attendance-system" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-file-earmark-text"></i> know more about project
+                  </a>
+                </div>
+              </div>
             </div>
-          </div><!-- End Project Item -->
+          </div>
+
+          
 
           <!-- Project 2 -->
-          <div class="col-lg-4 col-md-6 project-item">
-            <img src="assets/img/projects/project-2.jpg" class="img-fluid" alt="Project 2">
-            <div class="project-info">
-              <h4>Bank Management System</h4>
-              <p style="text-align: justify;">The "Bank Account Management System" is an Internet Banking application that lets customers manage their accounts online. It simulates standard banking processes, enabling features like deposits, withdrawals, account setup, and reporting. Shifting from traditional banking to a 24/7 virtual platform, it offers global access and convenience, removing barriers to transactions anytime, anywhere.</p>
-              <p><strong>Technologies Used:</strong> Java, Swing, MySQL, Thymeleaf</p>
-              <a href="https://github.com/vivek-dhamanemath/bank-management-system" title="GitHub Repo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-github"></i> GitHub Repo
-              </a>
-              <a href="https://example.com/live-demo" title="Live Demo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-box-arrow-up-right"></i> Live Demo
-              </a>
-              <a href="https://github.com/vivek-dhamanemath/bank-management-system/tree/master?tab=readme-ov-file#bank-management-system" title="Project Details" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-file-earmark-text"></i> Project Details
-              </a>
+          <div class="col-lg-4 col-md-6">
+            <div class="project-item">
+              <img src="assets/img/projects/project-2.jpg" class="img-fluid" alt="Spring Boot Actor Database">
+              <div class="project-info">
+                <h4>ArtistryX: The Ultimate Artist Management Platform!</h4>
+                <p>A Spring Boot application for managing artist information with comprehensive CRUD operations.</p>
+                
+                <ul class="tech-stack">
+                  <li>Java</li>
+                  <li>Spring Boot</li>
+                  <li>Postgres</li>
+                  <li>Next.js</li>
+                  <li>JWT</li>
+                  <li>OAuth2</li>
+                  <li>Stripe</li>
+                </ul>
+                
+                <div class="project-links">
+                  
+                  <a href="/artistryx.html" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-file-earmark-text"></i> know more about project
+                  </a>
+                </div>
+              </div>
             </div>
-          </div><!-- End Project Item -->
+          </div>
 
           <!-- Project 3 -->
-          <div class="col-lg-4 col-md-6 project-item">
-            <img src="assets/img/projects/project-3.jpg" class="img-fluid" alt="Project 2">
-            <div class="project-info">
-              <h4>Spring Boot Actor DataBase</h4>
-              <p style="text-align: justify;">About
-                The ActorDB project is a Spring Boot application designed to manage actor information. It includes functionalities to add, update, delete, and retrieve actor details. The project is structured into several packages, each with its specific responsibilities.</p>
-              <p><strong>Technologies Used:</strong> Java, Spring Boot, MySQL</p>
-              <a href="https://github.com/vivek-dhamanemath/Spring-Boot-ActorDB" title="GitHub Repo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-github"></i> GitHub Repo
-              </a>
-              <a href="https://www.youtube.com/watch?v=4SOaqXpGawc&t=804s" title="Live Demo" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-box-arrow-up-right"></i> Live Demo
-              </a>
-              <a href="https://github.com/vivek-dhamanemath/Spring-Boot-ActorDB/blob/master/README.md" title="Project Details" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-file-earmark-text"></i> Project Details
-              </a>
+          <div class="col-lg-4 col-md-6">
+            <div class="project-item">
+              <img src="assets/img/projects/project-3.png" class="img-fluid" alt="Facial Recognition System">
+              <div class="project-info">
+                <h4>My Portfolio Website</h4>
+                <p>This is my personal portfolio website, the one you're currently viewing. It's built using HTML, CSS, and JavaScript to showcase my work, skills, and projects in a clean and responsive layout.</p>
+                
+                <ul class="tech-stack">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Bootstrap</li>
+                </ul>
+                
+                <div class="project-links">
+                  <a href="https://github.com/vivek-dhamanemath/vivek-dhamanemath.github.io" class="btn btn-custom" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-github"></i> GitHub
+                  </a>
+                  
+                </div>
+              </div>
             </div>
-          </div><!-- End Project Item -->
+          </div>
 
         </div>
-
       </div>
-
-    </section><!-- /Projects Section -->
-
+    </section>
   </main>
 
-  <footer id="footer" class="footer light-background">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Vivek J Dhamanemath</strong> <span>All Rights Reserved<br></span></p>
-      </div>
-      <div class="social-links d-flex justify-content-center">
-        <a href="https://x.com/vivekjd15" class="twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-        <!-- <a href="#" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a> -->
-        <a href="https://www.instagram.com/vivek_jd15/" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/vivek-dhamanemath/" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/vivek-dhamanemath" class="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader" aria-label="Loading"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+    
+  <!-- Load JS files with defer -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
 
   <!-- Instagram Modal -->
   <div class="modal fade" id="instagramModal" tabindex="-1" aria-labelledby="instagramModalLabel" aria-hidden="true">

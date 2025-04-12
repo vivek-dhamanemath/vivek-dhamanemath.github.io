@@ -27,7 +27,6 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/gallery.css" rel="stylesheet">
-  <link href="assets/css/navbar.css" rel="stylesheet">
 </head>
 
 <body class="gallery-page college-page">
@@ -257,9 +256,14 @@
 
       </div>
 
-    </section><!-- /Gallery Section -->
+    </section><!-- End Gallery Section -->
+
+    </div><!-- End Container -->
 
   </main>
+
+  <!-- Add margin/spacing before footer -->
+  <div style="margin-bottom: 50px;"></div>
 
   <!-- Footer Placeholder -->
   <div id="footer-placeholder"></div>

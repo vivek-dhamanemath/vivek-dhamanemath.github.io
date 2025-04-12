@@ -1,0 +1,291 @@
+/* Overall Gallery Page Styles */
+.gallery-page {
+  background-color: var(--background-color);
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Gallery Header & Intro */
+.gallery-header {
+  padding: 100px 0 40px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0, 110, 220, 0.05) 0%, rgba(0, 0, 0, 0.02) 100%);
+}
+.gallery-title {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+.gallery-title h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.gallery-title p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* Gallery Filters */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+.filter-btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 30px;
+  background: var(--surface-color);
+  color: var(--default-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+/* Add modifier for small grid layout */
+.gallery-grid.small-grid {
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 5px;
+}
+
+/* Gallery Item */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--surface-color);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f8f9fa;
+  height: 240px;
+}
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.3s ease;
+  display: block;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.85);
+}
+
+/* Gallery Overlay & Caption */
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+.gallery-caption {
+  color: #fff;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+}
+.gallery-caption h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.gallery-caption p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Lazy Loading */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Modern Gallery Styling */
+.gallery {
+  padding: 60px 0;
+}
+.gallery-container {
+  margin-top: 30px;
+}
+
+/* Gallery items grid layout */
+.row.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 0 15px;
+  margin: 20px 0;
+}
+.gallery-grid .col-xl-3,
+.gallery-grid .col-lg-4,
+.gallery-grid .col-md-6 {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+/* Gallery links overlay */
+.gallery-links {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.gallery-item:hover .gallery-links {
+  opacity: 1;
+}
+
+/* Preview link icon styling */
+.preview-link {
+  color: #fff;
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.preview-link:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  .gallery-title h1 {
+    font-size: 2rem;
+  }
+  .row.gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  .gallery-item {
+    height: 180px;
+  }
+}
+@media (max-width: 576px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+  }
+  .gallery-caption h3 {
+    font-size: 1rem;
+  }
+  .row.gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  .gallery-item {
+    height: 150px;
+  }
+}
+@media (max-width: 992px) {
+  .row.gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+  }
+  .gallery-item {
+    height: 220px;
+  }
+}
+
+/* Convocation Page */
+.convocation-page .gallery-item {
+  border: 3px solid #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.convocation-page .gallery-item:hover {
+  border-color: transparent; /* Changed from var(--accent-color) to transparent */
+}
+
+/* College Page */
+.college-page .gallery-item {
+  border: 3px solid #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.college-page .gallery-item:hover {
+  border-color: var(--accent-color);
+}
+
+/* Travel Page */
+.travel-page .gallery-item {
+  border: 3px solid #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.travel-page .gallery-item:hover {
+  border-color: var(--accent-color);
+}
+
+/* Farewell Page */
+.farewell-page .gallery-item {
+  border: none;
+}
+
+/* Experience Page */
+.experience-page .gallery-item {
+  border: 2px dashed #ced4da;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+.experience-page .gallery-item:hover {
+  border-color: var(--accent-color);
+}
+
+/* Fix footer positioning */
+.gallery-page .footer {
+  margin-top: auto;
+}

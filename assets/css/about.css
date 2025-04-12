@@ -1,0 +1,188 @@
+/* About Page Styles */
+
+/* About Page Modern Styling */
+.about-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.about-page .section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.about-page .section:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* Profile image styling */
+.profile-img {
+  border-radius: 10px;
+  width: 90%;
+  max-width: 270px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Content area styling */
+.about-content {
+  margin-top: 30px;
+}
+
+.about-content h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.about-content h2:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #34b7a7;
+  bottom: 0;
+  left: 0;
+}
+
+.about-content .content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Contact information styling */
+.contact-info {
+  padding: 0;
+  list-style: none;
+}
+
+.contact-info li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info li:last-child {
+  border-bottom: none;
+}
+
+.contact-info li i {
+  font-size: 16px;
+  margin-right: 10px;
+  color: #34b7a7;
+}
+
+.contact-info li strong {
+  display: inline-block;
+  width: 100px;
+  color: #2c3e50;
+}
+
+.contact-info li span {
+  color: #777;
+}
+
+/* Skills section styling */
+.skills-content {
+  margin-top: 30px;
+}
+
+.skills-animation .progress {
+  height: auto;
+  display: block;
+  background: none;
+  margin-bottom: 30px;
+}
+
+.skills-animation .progress .skill {
+  padding: 10px 0;
+  margin: 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.skills-animation .progress .skill span {
+  color: #555;
+}
+
+.skills-animation .progress .skill .val {
+  float: right;
+  font-style: normal;
+  color: #34b7a7;
+}
+
+.skills-animation .progress-bar-wrap {
+  background: #e9ecef;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skills-animation .progress-bar {
+  width: 0;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #34b7a7;
+  transition: width 2s ease;
+}
+
+/* Animation for skills progress bars */
+@media (min-width: 992px) {
+  .skills-animation .progress .progress-bar {
+    width: 0 !important;
+  }
+  
+  .skills-animation.animate .progress .progress-bar {
+    animation: progress-animation 1s ease-in-out forwards;
+  }
+  
+  @keyframes progress-animation {
+    0% { width: 0; }
+    100% { width: attr(aria-valuenow '%'); }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .about-content .content {
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  .profile-img {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page .section {
+    padding: 60px 0;
+  }
+  
+  .section-title h2 {
+    font-size: 28px;
+  }
+  
+  .contact-info li strong {
+    width: 80px;
+  }
+}
