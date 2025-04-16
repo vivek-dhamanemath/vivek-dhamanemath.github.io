@@ -116,3 +116,84 @@
   flex-wrap: wrap;
   margin-top: auto;
 }
+
+/* Embedded page sections styling */
+.page-section {
+  padding: 60px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.page-section:not(:first-child) {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.imported-content {
+  width: 100%;
+}
+
+.imported-content section {
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.imported-content section:last-child {
+  margin-bottom: 0;
+}
+
+/* Fix some potential spacing issues */
+.about-content-wrapper .skills-container,
+.about-content-wrapper .about-content {
+  padding-top: 0;
+}
+
+/* Add visual separation between sections */
+.page-section::before {
+  content: '';
+  display: block;
+  height: 50px;
+}
+
+.page-section:first-child::before {
+  display: none;
+}
+
+/* Keep section titles consistent */
+.imported-content .section-title {
+  margin-bottom: 40px;
+}
+
+/* Make sure content containers take full width */
+.imported-content .container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.page-section:last-child {
+  border-bottom: none;
+}
+
+/* Add page section dividers */
+.page-section::before {
+  content: '';
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.page-section:first-child::before {
+  display: none;
+}
+
+/* Page section loading state */
+.page-section [id$="-content"]:empty::before {
+  content: 'Loading content...';
+  display: block;
+  text-align: center;
+  padding: 50px 0;
+  color: #888;
+  font-style: italic;
+}

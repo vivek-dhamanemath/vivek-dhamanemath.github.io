@@ -2,45 +2,44 @@
  * Photography page JavaScript
  */
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize GLightbox for image previews
+  // Initialize lightbox
   const lightbox = GLightbox({
     selector: '.glightbox',
     touchNavigation: true,
     loop: true,
-    autoplayVideos: true
+    preload: false
   });
   
   // Initialize Isotope for filtering
-  let iso;
-  const gallery = document.querySelector('.photo-gallery');
-  
-  if (gallery) {
-    imagesLoaded(gallery, function() {
-      iso = new Isotope(gallery, {
-        itemSelector: '.gallery-item',
-        layoutMode: 'fitRows',
-        fitRows: {
-          gutter: 20
-        }
-      });
-      
-      // Filter items on button click
-      const filterButtons = document.querySelectorAll('#gallery-flters li');
-      filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Remove active class from all buttons
-          filterButtons.forEach(btn => btn.classList.remove('filter-active'));
-          // Add active class to clicked button
-          this.classList.add('filter-active');
-          
-          const filterValue = this.getAttribute('data-filter');
-          iso.arrange({
-            filter: filterValue
-          });
+  imagesLoaded(document.querySelector('.photo-gallery'), function() {
+    const photoGallery = new Isotope('.photo-gallery', {
+      itemSelector: '.masonry-item',
+      percentPosition: true,
+      layoutMode: 'masonry'
+    });
+    
+    // Filter items on button click
+    document.querySelectorAll('.gallery-filters button').forEach(button => {
+      button.addEventListener('click', function() {
+        const filterValue = this.getAttribute('data-filter');
+        
+        // Toggle active class
+        document.querySelectorAll('.gallery-filters button').forEach(btn => {
+          btn.classList.remove('filter-active');
         });
+        this.classList.add('filter-active');
+        
+        if (filterValue === '*') {
+          photoGallery.arrange({ filter: '*' });
+        } else {
+          photoGallery.arrange({ filter: filterValue });
+        }
+        
+        // Update layout after filtering
+        photoGallery.layout();
       });
     });
-  }
+  });
   
   // Implement lazy loading
   const lazyImages = document.querySelectorAll('.lazy-load');

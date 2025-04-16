@@ -160,6 +160,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 5000);
 });
 
+// Fix extra padding after navbar
+document.addEventListener('DOMContentLoaded', function() {
+  // Execute after header is loaded
+  setTimeout(() => {
+    const main = document.querySelector('.main');
+    if (main) {
+      main.style.marginTop = '0';
+      main.style.paddingTop = '0';
+    }
+  }, 100);
+});
+
 // Helper function to load individual components
 async function loadComponent(elementId, componentPath) {
     try {
@@ -395,3 +407,63 @@ function handleStylesheets() {
         }
     });
 }
+
+/**
+ * Load header and footer components
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Load header
+  const headerPlaceholder = document.getElementById('header-placeholder');
+  if (headerPlaceholder) {
+    fetch('components/header.html')
+      .then(response => response.text())
+      .then(data => {
+        headerPlaceholder.innerHTML = data;
+        
+        // After header is loaded, initialize navigation scripts
+        const navbarScript = document.createElement('script');
+        navbarScript.src = 'assets/js/navbar.js';
+        document.body.appendChild(navbarScript);
+        
+        // Set active navigation item based on current page
+        setTimeout(setActiveNavItem, 100);
+      });
+  }
+  
+  // Load footer
+  const footerPlaceholder = document.getElementById('footer-placeholder');
+  if (footerPlaceholder) {
+    fetch('components/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        footerPlaceholder.innerHTML = data;
+      });
+  }
+  
+  // Function to set active navigation item
+  function setActiveNavItem() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.navbar-menu a');
+    
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+        
+        // If in dropdown, also activate parent
+        const dropdown = link.closest('.dropdown');
+        if (dropdown) {
+          dropdown.querySelector('a').classList.add('active');
+        }
+      }
+    });
+    
+    // Set index.html as active when on homepage
+    if (currentPage === 'index.html') {
+      const homeLink = document.querySelector('.navbar-menu a[href="index.html"]');
+      if (homeLink) {
+        homeLink.classList.add('active');
+      }
+    }
+  }
+});

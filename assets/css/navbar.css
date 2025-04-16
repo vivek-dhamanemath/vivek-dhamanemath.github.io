@@ -479,6 +479,60 @@
   }
 }
 
+/* Fix for mobile menu display */
+@media (max-width: 1199px) {
+  .navbar-menu {
+    display: block !important;
+    visibility: visible;
+    height: 100vh;
+    width: 280px;
+    position: fixed;
+    top: 0;
+    right: -280px;
+    background-color: var(--background-color);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    z-index: 1005;
+    padding: 80px 0 30px;
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navbar-menu.active {
+    right: 0;
+  }
+  
+  .navbar-menu ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .navbar-menu li {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-menu li a {
+    padding: 12px 20px;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  
+  /* No scroll for body when menu is open */
+  body.no-scroll {
+    overflow: hidden;
+  }
+  
+  /* Ensure mobile menu toggle is visible */
+  .mobile-menu-toggle {
+    display: block;
+    z-index: 1006;
+  }
+}
+
 /* Smaller mobile devices */
 @media (max-width: 576px) {
   .navbar-logo h1 {
@@ -491,6 +545,27 @@
   
   .navbar-menu {
     width: 260px;
+    right: -280px; /* Ensure it's fully off-screen initially */
+    overflow-y: auto; /* Ensure scrolling works */
+    height: 100vh; /* Full height */
+    display: flex; /* Make sure display is flex even in mobile */
+    flex-direction: column; /* Stack items vertically */
+  }
+  
+  .navbar-menu.active {
+    right: 0;
+    display: flex; /* Ensure it's displayed when active */
+  }
+  
+  .navbar-menu ul {
+    width: 100%; /* Ensure full width */
+    display: flex; /* Make sure display is flex */
+    flex-direction: column; /* Stack menu items vertically */
+  }
+  
+  .navbar-menu li {
+    width: 100%;
+    display: block; /* Ensure all list items are visible */
   }
   
   body {
@@ -499,8 +574,18 @@
 }
 
 /* Add space for navbar to prevent content from going underneath it */
-body {
-  padding-top: 75px; /* Reduced from 85px to tighten the gap while still preventing overlap */
+
+
+/* Fix for extra padding after navbar */
+.navbar + .main,
+#header-placeholder + .main {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* If the above doesn't fully solve it, you might need this additional rule */
+.main {
+  margin-top: 0;
 }
 
 /* Enhanced animations */
@@ -544,3 +629,223 @@ body {
 .navbar-menu.active ul li:nth-child(5) { animation-delay: 0.5s; }
 .navbar-menu.active ul li:nth-child(6) { animation-delay: 0.6s; }
 .navbar-menu.active ul li:nth-child(7) { animation-delay: 0.7s; }
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 15px;
+  z-index: 1010;
+  position: relative;
+}
+
+.hamburger-icon {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+}
+
+.hamburger-icon span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: var(--heading-color);
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.hamburger-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.hamburger-icon span:nth-child(2),
+.hamburger-icon span:nth-child(3) {
+  top: 8px;
+}
+
+.hamburger-icon span:nth-child(4) {
+  top: 16px;
+}
+
+.mobile-menu-toggle.active .hamburger-icon span:nth-child(1) {
+  top: 8px;
+  width: 0%;
+  left: 50%;
+}
+
+.mobile-menu-toggle.active .hamburger-icon span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-icon span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-icon span:nth-child(4) {
+  top: 8px;
+  width: 0%;
+  left: 50%;
+}
+
+/* Mobile Menu Overlay */
+.navbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.navbar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Social Links */
+.navbar-mobile-socials {
+  display: none;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.navbar-mobile-socials a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 8px;
+  font-size: 20px;
+  color: var(--nav-color);
+  transition: all 0.3s ease;
+}
+
+.navbar-mobile-socials a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* Desktop Social Links */
+.navbar-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-socials a {
+  font-size: 18px;
+  color: var(--nav-color);
+  transition: all 0.3s ease;
+}
+
+.navbar-socials a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 1199.98px) {
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: #fff;
+    z-index: 1005;
+    padding: 100px 0 30px;
+    overflow-y: auto;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+    display: block;
+  }
+  
+  .navbar-menu.active {
+    right: 0;
+  }
+  
+  .navbar-menu ul {
+    flex-direction: column;
+    padding: 0 25px;
+  }
+  
+  .navbar-menu li {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .navbar-menu a {
+    padding: 12px 0;
+    width: 100%;
+    font-size: 16px;
+  }
+  
+  .navbar-menu a:before {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .navbar-mobile-socials {
+    display: block;
+  }
+  
+  .navbar-socials {
+    display: none;
+  }
+  
+  .dropdown-content {
+    position: static !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 0 0 15px !important;
+    opacity: 1 !important;
+    visibility: hidden !important;
+    transform: none !important;
+    transition: none !important;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+  }
+  
+  .dropdown.active .dropdown-content {
+    visibility: visible !important;
+    max-height: 500px;
+    transition: max-height 0.4s ease-in-out !important;
+  }
+  
+  .dropdown > a:after {
+    content: '\F282';
+    font-family: 'bootstrap-icons';
+    margin-left: 8px;
+    transition: transform 0.3s;
+  }
+  
+  .dropdown.active > a:after {
+    transform: rotate(180deg);
+  }
+}
+
+/* Dark mode for mobile menu */
+.dark-background .navbar-menu {
+  background: #121212;
+}
+
+.dark-background .navbar-mobile-socials {
+  border-color: rgba(255, 255, 255, 0.1);
+}

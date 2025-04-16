@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Photography - Vivek Dhamanemath</title>
-  <meta name="description" content="Photography portfolio showcasing moments captured through my lens">
-  <meta name="keywords" content="photography, portfolio, images, gallery">
+  <title>Photography - Vivek J Dhamanemath</title>
+  <meta name="description" content="Photography portfolio showcasing Vivek Dhamanemath's visual work and creative perspective through the lens.">
+  <meta name="keywords" content="photography, portfolio, Vivek J Dhamanemath, photos, creative, camera, visual arts">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -21,68 +21,218 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- Main CSS Files -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/photography.css" rel="stylesheet">
   <link href="assets/css/navbar.css" rel="stylesheet">
+  <link href="assets/css/photography.css" rel="stylesheet">
 </head>
 
 <body class="photography-page">
 
   <!-- Header Placeholder -->
-  <div id="header-placeholder"></div>
+  <div id="header-placeholder">Loading header...</div>
 
   <main class="main">
-    <!-- Hero Section -->
-    <section id="photography-hero" class="photography-hero">
+
+    <!-- Photography Hero Section -->
+    <section id="photography-hero" class="photography-hero section">
       <div class="container">
-        <div class="hero-content" data-aos="fade-up">
-          <h1>Through My Lens</h1>
-          <p>Photography is my way of capturing fleeting moments and preserving the beauty I see in everyday life. Through these images, I share my perspective, emotions, and the stories hidden in plain sight. This gallery features some of my favorite snapshots from various adventures and quiet moments alike.</p>
-          <div class="hero-social">
-            <a href="https://www.instagram.com/vivek_jd_155/" class="instagram-btn" target="_blank" rel="noopener noreferrer">
-              <i class="bi bi-instagram"></i> Follow on Instagram
-            </a>
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8" data-aos="fade-up">
+            <h1>Photography</h1>
+            <p class="lead">Capturing moments and emotions through the lens.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Instagram Feed Section -->
-    <section id="instagram-section" class="instagram-section section">
+    <!-- Photography Gallery Section -->
+    <section id="photo-gallery" class="photography-section section">
       <div class="container" data-aos="fade-up">
-        <div class="instagram-feed-section">
-          <!-- Instagram Feed Container -->
-          <div class="instagram-embed-container">
-            <!-- LightWidget Instagram Embed -->
-            <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-            <iframe src="//lightwidget.com/widgets/57d202963d125f0f92b39a1671a615b0.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+        <div class="section-title">
+          <h2>My Portfolio</h2>
+          <p>Explore my collection of photographs that tell stories through visual aesthetics</p>
+        </div>
+
+        <div class="gallery-filters" data-aos="fade-up" data-aos-delay="100">
+          <ul>
+            <li><button class="filter-active" data-filter="*">All</button></li>
+            <li><button data-filter=".filter-nature">Nature</button></li>
+            <li><button data-filter=".filter-urban">Urban</button></li>
+            <li><button data-filter=".filter-portrait">Portrait</button></li>
+            <li><button data-filter=".filter-travel">Travel</button></li>
+          </ul>
+        </div>
+
+        <div class="photo-gallery masonry-layout" data-aos="fade-up" data-aos-delay="200">
+          <div class="masonry-item filter-nature">
+            <div class="photo-item">
+              <a href="assets/img/photography/nature-1.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Sunrise Over Mountains" data-description="Early morning trek to capture the sunrise over the mountains.">
+                <img src="assets/img/photography/nature-1.jpg" alt="Nature Photo 1" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Sunrise Over Mountains</h4>
+                  <p>Nature | 2023</p>
+                </div>
+              </a>
+            </div>
           </div>
-          
-          <div class="text-center mt-4">
-            <a href="https://www.instagram.com/vivek_jd_155/" class="instagram-btn large" target="_blank" rel="noopener noreferrer">
-              <i class="bi bi-instagram"></i> View My Instagram Profile
-            </a>
+
+          <div class="masonry-item filter-urban">
+            <div class="photo-item">
+              <a href="assets/img/photography/urban-1.jpg" class="glightbox" data-gallery="photo-gallery" data-title="City Lights" data-description="Night cityscape showing the vibrant lights of downtown.">
+                <img src="assets/img/photography/urban-1.jpg" alt="Urban Photo 1" class="img-fluid">
+                <div class="photo-info">
+                  <h4>City Lights</h4>
+                  <p>Urban | 2023</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="masonry-item filter-portrait">
+            <div class="photo-item">
+              <a href="assets/img/photography/portrait-1.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Street Portrait" data-description="A candid street portrait capturing genuine emotion.">
+                <img src="assets/img/photography/portrait-1.jpg" alt="Portrait Photo 1" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Street Portrait</h4>
+                  <p>Portrait | 2022</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="masonry-item filter-nature">
+            <div class="photo-item">
+              <a href="assets/img/photography/nature-2.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Forest Path" data-description="Mystical path through a dense forest with morning fog.">
+                <img src="assets/img/photography/nature-2.jpg" alt="Nature Photo 2" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Forest Path</h4>
+                  <p>Nature | 2022</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="masonry-item filter-travel">
+            <div class="photo-item">
+              <a href="assets/img/photography/travel-1.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Ancient Temple" data-description="Historical temple architecture from my travels across Asia.">
+                <img src="assets/img/photography/travel-1.jpg" alt="Travel Photo 1" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Ancient Temple</h4>
+                  <p>Travel | 2023</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="masonry-item filter-urban">
+            <div class="photo-item">
+              <a href="assets/img/photography/urban-2.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Street Art" data-description="Colorful street art found in the hidden alleys of the city.">
+                <img src="assets/img/photography/urban-2.jpg" alt="Urban Photo 2" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Street Art</h4>
+                  <p>Urban | 2022</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="masonry-item filter-portrait">
+            <div class="photo-item">
+              <a href="assets/img/photography/portrait-2.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Window Light Portrait" data-description="Natural window light portrait using minimal setup.">
+                <img src="assets/img/photography/portrait-2.jpg" alt="Portrait Photo 2" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Window Light Portrait</h4>
+                  <p>Portrait | 2023</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="masonry-item filter-travel">
+            <div class="photo-item">
+              <a href="assets/img/photography/travel-2.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Beach Sunset" data-description="Golden hour sunset captured during a beach vacation.">
+                <img src="assets/img/photography/travel-2.jpg" alt="Travel Photo 2" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Beach Sunset</h4>
+                  <p>Travel | 2022</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="masonry-item filter-nature">
+            <div class="photo-item">
+              <a href="assets/img/photography/nature-3.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Waterfall" data-description="Hidden waterfall found during a hiking expedition.">
+                <img src="assets/img/photography/nature-3.jpg" alt="Nature Photo 3" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Hidden Waterfall</h4>
+                  <p>Nature | 2021</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="masonry-item filter-urban">
+            <div class="photo-item">
+              <a href="assets/img/photography/urban-3.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Urban Geometry" data-description="Abstract architectural patterns from modern buildings.">
+                <img src="assets/img/photography/urban-3.jpg" alt="Urban Photo 3" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Urban Geometry</h4>
+                  <p>Urban | 2023</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="masonry-item filter-travel">
+            <div class="photo-item">
+              <a href="assets/img/photography/travel-3.jpg" class="glightbox" data-gallery="photo-gallery" data-title="Mountain Village" data-description="Traditional village nestled among the mountains.">
+                <img src="assets/img/photography/travel-3.jpg" alt="Travel Photo 3" class="img-fluid">
+                <div class="photo-info">
+                  <h4>Mountain Village</h4>
+                  <p>Travel | 2022</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Contact CTA Section -->
+    <section id="photo-contact" class="section cta-section bg-light">
+      <div class="container text-center" data-aos="zoom-out">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h3>Interested in a photoshoot?</h3>
+            <p>I'm available for portrait sessions, event photography, and creative collaborations.</p>
+            <a href="contact.html" class="btn-custom">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer Placeholder -->
-  <div id="footer-placeholder"></div>
+  <div id="footer-placeholder">Loading footer...</div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS Files -->
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/components.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  
+  <!-- Photography-specific script -->
   <script src="assets/js/photography.js"></script>
 </body>
 
