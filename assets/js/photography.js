@@ -1,100 +1,70 @@
 /**
- * Photography page JavaScript
+ * Photography page specific JavaScript
  */
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize lightbox
-  const lightbox = GLightbox({
-    selector: '.glightbox',
-    touchNavigation: true,
-    loop: true,
-    preload: false
-  });
-  
-  // Initialize Isotope for filtering
-  imagesLoaded(document.querySelector('.photo-gallery'), function() {
-    const photoGallery = new Isotope('.photo-gallery', {
-      itemSelector: '.masonry-item',
-      percentPosition: true,
-      layoutMode: 'masonry'
-    });
-    
-    // Filter items on button click
-    document.querySelectorAll('.gallery-filters button').forEach(button => {
-      button.addEventListener('click', function() {
-        const filterValue = this.getAttribute('data-filter');
-        
-        // Toggle active class
-        document.querySelectorAll('.gallery-filters button').forEach(btn => {
-          btn.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-        
-        if (filterValue === '*') {
-          photoGallery.arrange({ filter: '*' });
-        } else {
-          photoGallery.arrange({ filter: filterValue });
-        }
-        
-        // Update layout after filtering
-        photoGallery.layout();
-      });
-    });
-  });
-  
-  // Implement lazy loading
-  const lazyImages = document.querySelectorAll('.lazy-load');
-  
-  if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.classList.add('loaded');
-          imageObserver.unobserve(img);
-        }
-      });
-    });
-    
-    lazyImages.forEach(img => imageObserver.observe(img));
+  // Process Instagram embeds
+  if (window.instgrm) {
+    window.instgrm.Embeds.process();
   } else {
-    // Fallback for browsers without IntersectionObserver support
-    lazyImages.forEach(img => img.classList.add('loaded'));
+    // If Instagram script hasn't loaded yet, try again after a delay
+    setTimeout(function() {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+    }, 2000);
   }
   
-  // Load Instagram feed
-  loadInstagramFeed();
+  // Initialize AOS animations if present
+  if (window.AOS) {
+    AOS.refresh();
+  }
 });
 
 /**
  * Load Instagram feed
- * Using LightWidget embed for automatic updates
+ * Using direct Instagram embed without third-party widgets
  */
 function loadInstagramFeed() {
-  // Load LightWidget script
-  const lightWidgetScript = document.createElement('script');
-  lightWidgetScript.src = 'https://cdn.lightwidget.com/widgets/lightwidget.js';
-  lightWidgetScript.async = true;
-  document.body.appendChild(lightWidgetScript);
+  const instagramContainer = document.getElementById('instagram-feed');
+  if (!instagramContainer) return;
   
-  // Optional: Add a scroll event listener to lazy load the iframe
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const widget = document.getElementById('instagram-widget');
-        if (widget && !widget.getAttribute('data-loaded')) {
-          widget.setAttribute('data-loaded', 'true');
-          // Refresh the widget to ensure proper loading
-          if (window.instgrm) {
-            window.instgrm.Embeds.process();
-          }
-        }
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+  // Create a message to guide the user
+  instagramContainer.innerHTML = `
+    <div class="instagram-notice text-center mb-4">
+      <p>Due to Instagram's API restrictions, direct embedding is limited. Here are direct links to my Instagram posts:</p>
+    </div>
+    <div class="instagram-links-grid"></div>
+  `;
   
-  const embedContainer = document.querySelector('.instagram-embed-container');
-  if (embedContainer) {
-    observer.observe(embedContainer);
-  }
+  const linksGrid = instagramContainer.querySelector('.instagram-links-grid');
+  
+  // Array of Instagram post details
+  const instagramPosts = [
+    { url: 'https://www.instagram.com/vivek_jd_155/reel/CritHLxAyq_/', caption: 'Check out my drone footage of the city skyline' },
+    { url: 'https://www.instagram.com/p/CNkIFdJD2ko/', caption: 'Sunrise at the beach - morning colors' },
+    { url: 'https://www.instagram.com/p/CyqRvvBPvdI/', caption: 'Urban photography - street lights at night' },
+    { url: 'https://www.instagram.com/p/CxiNnUJIYzn/', caption: 'Nature walk - forest and waterfalls' },
+    { url: 'https://www.instagram.com/p/Cvmi63oI2xk/', caption: 'Abstract architecture photography' },
+    { url: 'https://www.instagram.com/p/CuKEdMWoX4r/', caption: 'Portrait photography - lighting techniques' }
+  ];
+  
+  // Create and append each Instagram post as a card with link
+  instagramPosts.forEach(post => {
+    const card = document.createElement('div');
+    card.className = 'instagram-card';
+    
+    card.innerHTML = `
+      <div class="instagram-card-content">
+        <div class="instagram-icon">
+          <i class="bi bi-instagram"></i>
+        </div>
+        <p class="instagram-caption">${post.caption}</p>
+        <a href="${post.url}" target="_blank" rel="noopener" class="btn-instagram">
+          View on Instagram <i class="bi bi-box-arrow-up-right ms-1"></i>
+        </a>
+      </div>
+    `;
+    
+    linksGrid.appendChild(card);
+  });
 }

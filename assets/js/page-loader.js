@@ -82,6 +82,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
+        // Process Instagram embeds if they exist
+        if (pageUrl === 'photography.html') {
+          // Allow some time for the DOM to update
+          setTimeout(() => {
+            if (window.instgrm) {
+              window.instgrm.Embeds.process();
+            } else {
+              // If the Instagram script hasn't loaded yet, try again
+              const instaScript = document.createElement('script');
+              instaScript.src = '//www.instagram.com/embed.js';
+              instaScript.async = true;
+              document.body.appendChild(instaScript);
+              
+              instaScript.onload = function() {
+                window.instgrm.Embeds.process();
+              };
+            }
+          }, 1000);
+        }
+        
         // Reinitialize AOS animations
         if (window.AOS) {
           setTimeout(() => {
@@ -130,9 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadPageContent('photography.html', 'photography-content');
   }, 400);
   
-  setTimeout(() => {
-    loadPageContent('services.html', 'services-content');
-  }, 500);
+  
   
   setTimeout(() => {
     loadPageContent('contact.html', 'contact-content');
