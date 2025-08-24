@@ -6,7 +6,7 @@
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #f8f9fa;
   color: #333;
 }
@@ -48,7 +48,7 @@
 }
 
 .about-content h2:after {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   width: 50px;
@@ -144,29 +144,13 @@
   transition: width 2s ease;
 }
 
-/* Animation for skills progress bars */
-@media (min-width: 992px) {
-  .skills-animation .progress .progress-bar {
-    width: 0 !important;
-  }
-  
-  .skills-animation.animate .progress .progress-bar {
-    animation: progress-animation 1s ease-in-out forwards;
-  }
-  
-  @keyframes progress-animation {
-    0% { width: 0; }
-    100% { width: attr(aria-valuenow '%'); }
-  }
-}
-
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .about-content .content {
     margin-top: 30px;
     padding: 20px;
   }
-  
+
   .profile-img {
     margin: 0 auto;
     display: block;
@@ -177,11 +161,11 @@
   .about-page .section {
     padding: 60px 0;
   }
-  
+
   .section-title h2 {
     font-size: 28px;
   }
-  
+
   .contact-info li strong {
     width: 80px;
   }
